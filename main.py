@@ -6,20 +6,18 @@ def get_word():
     return(words[random.randint(0,max_number)])
     
     
-
-
-
 def play_Hangman():
     word_to_guess=get_word()
 
-    guessed_letters=[]
+    guessed_letters=['']
 
     while True:
         letter=input("Please enter a letter : ")
         guessed_letters.append(letter)
 
+        print("hello ")
         print("You have guessed these letters so far: ")
-        for letters in guessed_letters:
-            print(letter)
+
+        print(guessed_letters)
 
 play_Hangman()
