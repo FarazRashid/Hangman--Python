@@ -7,51 +7,70 @@ def get_word():
     
     
 def play_Hangman():
-    word_to_guess=get_word()
-    lives=word_to_guess.__len__()
 
-    display_flags=[False for letters in range(lives)]
+    print("Welcome to hangman!")
+    userinput=input("Please press 's' button to start the game: ").lower()
+    while userinput=='s':
+        word_to_guess="apple"
+        lives=word_to_guess.__len__()
+        total_letters=lives
+        letters_guessed=0
 
-    guessed_letters=[]
+        display_flags=[False for letters in range(lives)]
 
-    while lives>0:
-        letter=input("Please enter a letter : ")
+        guessed_letters=[]
 
-# validation
-        for letters in guessed_letters:
-            while letters==letter:
-                print("You have already entered this letter into the program please try again")
-                letter=input("Please enter a letter : ")
+        while lives>0 and guessed_letters!=total_letters:
+            letter=input("Please enter a letter : ")
 
-        if letter not in word_to_guess:
-            lives-=1
+    # validation
+            for letters in guessed_letters:
+                while letters==letter:
+                    print("You have already entered this letter into the program please try again")
+                    letter=input("Please enter a letter : ")
 
-        guessed_letters.append(letter)
+            if letter not in word_to_guess:
+                lives-=1
 
-        x=0
+            guessed_letters.append(letter)
 
-        for i in word_to_guess:
-            if letter==i:
-                display_flags[x]=True
-            x+=1
+            x=0
 
-        print("You have "+ str(lives) + " left and you have guessed these letters: " + str(guessed_letters))
-        print("")
+            for i in word_to_guess:
+                if letter==i:
+                    display_flags[x]=True
+                    letters_guessed+=1
+                x+=1
 
-        print("current word: ")
+            print("You have "+ str(lives) + " left and you have guessed these letters: " + str(guessed_letters))
+            print("")
 
-        x=0
+            print("current word: ")
 
-        for i in display_flags:
-            if i==False:
-                print("_",end=" ")
-            elif i==True:
-                print(word_to_guess[x],end=" ")
-            x+=1
+            x=0
+
+            for i in display_flags:
+                if i==False:
+                    print("_",end=" ")
+                elif i==True:
+                    print(word_to_guess[x],end=" ")
+                x+=1
+            
+            print("")
+
+            if(letters_guessed==total_letters):
+                print("You have won the game! Congratulations")
+                break
+            
+        if(letters_guessed!=total_letters and lives<=0):
+                
+                print("You have lost the game! You have ran out of lives")
+                break
         
         print("")
+        userinput=input("Please press 's' if you'd like to continue otherwise you will exit: ").lower()
 
-            
+    print("Thank you for playing!")
 
 
 
