@@ -10,6 +10,8 @@ def play_Hangman():
     word_to_guess=get_word()
     lives=word_to_guess.__len__()
 
+    display_flags=[False for letters in range(lives)]
+
     guessed_letters=[]
 
     while lives>0:
@@ -26,13 +28,29 @@ def play_Hangman():
 
         guessed_letters.append(letter)
 
+        x=0
+
+        for i in word_to_guess:
+            if letter==i:
+                display_flags[x]=True
+            x+=1
+
         print("You have "+ str(lives) + " left and you have guessed these letters: " + str(guessed_letters))
         print("")
 
         print("current word: ")
 
-        for letter in word_to_guess:
-                    print("_ ")
+        x=0
+
+        for i in display_flags:
+            if i==False:
+                print("_",end=" ")
+            elif i==True:
+                print(word_to_guess[x],end=" ")
+            x+=1
+        
+        print("")
+
             
 
 
