@@ -46,7 +46,7 @@ def play_Hangman():
             
             print("")
 
-            if(guessed_letters==set(word_to_guess)):
+            if(currentword==word_to_guess):
                 print("You have won the game! Congratulations")
                 break
             
