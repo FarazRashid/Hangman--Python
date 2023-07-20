@@ -15,12 +15,13 @@ def play_Hangman():
         lives=len(word_to_guess)
         total_letters=lives
         letters_guessed=0
+        currentword=""
 
         
 
         guessed_letters=set()
 
-        while lives>0 and guessed_letters!=set(word_to_guess):
+        while lives>0 and currentword!=word_to_guess:
             letter=input("Please enter a letter : ")
 
     # validation
@@ -47,9 +48,9 @@ def play_Hangman():
             
             print("")
 
-            if(guessed_letters==set(word_to_guess)):
-                print("You have won the game! Congratulations")
-                break
+        if(currentword!=word_to_guess):
+            print("You have won the game! Congratulations")
+            break
             
         if(lives<=0):
                 
