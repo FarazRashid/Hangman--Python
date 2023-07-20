@@ -11,7 +11,7 @@ def play_Hangman():
     userinput=input("Please press 's' button to start the game: ").lower()
     
     while userinput=='s':
-        word_to_guess=get_word()
+        word_to_guess="snake"
         lives=len(word_to_guess)
         total_letters=lives
         letters_guessed=0
@@ -36,7 +36,7 @@ def play_Hangman():
 
 
 
-            print("You have "+ str(lives) + " left and you have guessed these letters: " + " ".join(guessed_letters))
+            print("You have "+ str(lives) + " left and you have guessed these letters: " + " ".join(sorted(guessed_letters)))
             print("")
 
     
@@ -47,11 +47,11 @@ def play_Hangman():
             
             print("")
 
-            if(letters_guessed==total_letters):
+            if(guessed_letters==set(word_to_guess)):
                 print("You have won the game! Congratulations")
                 break
             
-        if(letters_guessed!=total_letters and lives<=0):
+        if(lives<=0):
                 
                 print("You have lost the game! You have ran out of lives")
                 print("The word was : " + word_to_guess)
