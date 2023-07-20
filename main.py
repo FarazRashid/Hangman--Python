@@ -20,13 +20,13 @@ def play_Hangman():
         guessed_letters=set()
 
         while lives>0 and currentword!=word_to_guess:
-            letter=input("Please enter a letter : ")
+            letter=input("Please enter a letter : ").lower()
 
     # validation
 
             while not letter.isalpha():
                 print("\nYou have not entered an alphabet")
-                letter=input("Please enter a letter : ")
+                letter=input("Please enter a letter : ").lower()
 
 
             for letters in guessed_letters:
