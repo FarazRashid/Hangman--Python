@@ -11,17 +11,15 @@ def play_Hangman():
     userinput=input("Please press 's' button to start the game: ").lower()
     
     while userinput=='s':
-        word_to_guess="snake"
+        word_to_guess=get_word()
         lives=len(word_to_guess)
-        total_letters=lives
-        letters_guessed=0
         currentword=""
 
         
 
         guessed_letters=set()
 
-        while lives>0 and currentword!=word_to_guess:
+        while lives>0 and guessed_letters!=set(word_to_guess):
             letter=input("Please enter a letter : ")
 
     # validation
@@ -48,9 +46,7 @@ def play_Hangman():
             
             print("")
 
-        if(currentword!=word_to_guess):
-            print("You have won the game! Congratulations")
-            break
+       
             
         if(lives<=0):
                 
@@ -62,7 +58,6 @@ def play_Hangman():
         userinput=input("Please press 's' if you'd like to continue otherwise you will exit: ").lower()
 
     print("Thank you for playing!")
-
 
 
 play_Hangman()
