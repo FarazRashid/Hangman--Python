@@ -23,6 +23,12 @@ def play_Hangman():
             letter=input("Please enter a letter : ")
 
     # validation
+
+            while not letter.isalpha():
+                print("\nYou have not entered an alphabet")
+                letter=input("Please enter a letter : ")
+
+
             for letters in guessed_letters:
                 while letters==letter:
                     print("You have already entered this letter into the program please try again")
